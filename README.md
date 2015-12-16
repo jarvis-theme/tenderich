@@ -1,9 +1,9 @@
 Tenderich
 ------------
 
-![tender](http://jarvis-store.com/themes/master-tema/tenderich/tenderich-preview.jpg)
+![tenderich](http://jarvis-store.com/themes/master-tema/tenderich/tenderich-preview.jpg)
 
-Tenderich adalah template toko online yang berdesain simple dan minimalis, dilengkpai slider promo pada halaman utama untuk mempromosikan produk anda.
+Tenderich adalah template toko online yang berdesain simple dan minimalis, dilengkapi slider promo pada halaman utama untuk mempromosikan produk anda.
 
 **Fitur:**
  - Full responsive 
