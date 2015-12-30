@@ -792,4 +792,6 @@ div > .button:hover{background-color: #fff;}
 @media (min-width: 768px) and (max-width: 800px) {
 	.email{width: 65%}
 }
-#shoppingcartplace {background: #343333}.accordion-inner > p, .decidernote{color: #333}.well{background-color: transparent}
+#shoppingcartplace {background: #343333}.accordion-inner > p, .accordion-inner, .decidernote{color: #333}
+.well{background-color: transparent}
+#wrap-product{background: #fff none repeat scroll 0% 0%; border-radius: 4px; padding: 20px}

@@ -5,19 +5,19 @@
 
         <div class="row">
             <div class="span5">
-                <div class="wrap">
+                <div class="wrap" id="wrap-product">
                     <div id="flexslider-product" class="flexslider">
                         <ul class="slides">
-                        @if($produk->gambar1!='')   
+                        @if($produk->gambar1!='')
                             <li><a href="{{product_image_url($produk->gambar1,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar1,'medium')), $produk->nama)}}</a></li>
                         @endif
-                        @if($produk->gambar2!='')   
+                        @if($produk->gambar2!='')
                             <li><a href="{{product_image_url($produk->gambar2,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar2,'medium')), $produk->nama)}}</a></li>
                         @endif
-                        @if($produk->gambar3!='')               
+                        @if($produk->gambar3!='')
                             <li><a href="{{product_image_url($produk->gambar3,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar3,'medium')), $produk->nama)}}</a></li>
                         @endif
-                        @if($produk->gambar4!='')               
+                        @if($produk->gambar4!='')
                             <li><a href="{{product_image_url($produk->gambar4,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar4,'medium')), $produk->nama)}}</a></li>
                         @endif  
                         </ul>     
@@ -25,16 +25,13 @@
 
                     <div id="flexcarousel-product" class="flexslider visible-desktop">
                         <ul class="slides">
-                        @if($produk->gambar1!='')               
-                            <li>{{HTML::image(url(product_image_url($produk->gambar1,'thumb')), 'Produk 1')}}</li>
-                        @endif
-                        @if($produk->gambar2!='')               
+                        @if($produk->gambar2!='')
                             <li>{{HTML::image(url(product_image_url($produk->gambar2,'thumb')), 'Produk 2')}}</li>
                         @endif
-                        @if($produk->gambar3!='')               
+                        @if($produk->gambar3!='')
                             <li>{{HTML::image(url(product_image_url($produk->gambar3,'thumb')), 'Produk 3')}}</li>
                         @endif
-                        @if($produk->gambar4!='')               
+                        @if($produk->gambar4!='')
                             <li>{{HTML::image(url(product_image_url($produk->gambar4,'thumb')), 'Produk 4')}}</li>
                         @endif  
                         </ul>
@@ -178,8 +175,8 @@
                                 </a>
                             </div>
                     
-                            <div id="review-trustklik" id="review" class="accordion-body in collapse">
-                                <div class="accordion-inner">
+                            <div id="review" class="accordion-body in collapse">
+                                <div id="review-trustklik" class="accordion-inner">
                                     {{pluginTrustklik()}}
                                 </div>
                             </div>
