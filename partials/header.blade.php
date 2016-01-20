@@ -5,7 +5,7 @@
 				@if ( !is_login() )
 					Selamat berbelanja, {{HTML::link('member', 'Login')}}
 				@else
-					Selamat datang {{HTML::link('member', user()->nama)}}, {{HTML::link('logout', 'logout')}}
+					Selamat datang {{HTML::link('member', user()->nama)}} | {{HTML::link('logout', 'Logout')}}
 				@endif
 			</div>
 			<div class="pull-right cart tleft" id='shoppingcartplace'>
@@ -18,7 +18,7 @@
 		<div class="row">
 			<div class="span12 clearfix">
 				<div class="top row">
-				@if(@getimagesize(url(logo_image_url())))
+				@if(logo_image_url())
 					<div class="span8 logo image">
 						<a href="{{url('home')}}">
 							<img src="{{url(logo_image_url())}}" alt="logo" />

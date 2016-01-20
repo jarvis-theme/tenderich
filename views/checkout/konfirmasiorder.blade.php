@@ -7,7 +7,7 @@
         <div class="row">
             <div class="span12">
                 <div class=" form-horizontal" >
-                    <table class="table table-bordered" >
+                    <table class="table table-bordered">
                         <tr>
                             <th align="center">Kode Order</th>
                             <th align="center">Tanggal Order</th>
@@ -105,12 +105,12 @@
                     @endif      
  
                     <div class="well">
-                        @if($order->jenisPembayaran==1)
+                        @if($order->jenisPembayaran == 1 && $order->status == 0)
                             <h3><center>Konfirmasi Form</center></h3>
                             @if($checkouttype==1)
                             {{-- */ $form_url = 'konfirmasiorder/' /* --}}
                             @else
-                            {{-- */ $form_url = 'konfirmasiorder/' /* --}}
+                            {{-- */ $form_url = 'konfirmasipreorder/' /* --}}
                             @endif
 
                             {{Form::open(array('url'=> $form_url.$order->id, 'method'=>'put', 'class'=> 'form-horizontal'))}}

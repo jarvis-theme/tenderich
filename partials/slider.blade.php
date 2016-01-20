@@ -4,10 +4,10 @@
 				<ul class="slides span12">
 			    	@foreach(slideshow() as $slider)
 				    <li>
-				    	@if($slider->text='')
-                        <a href="#">
+				    	@if(!empty($slider->url))
+                        <a href="{{filter_link_url($slider->url)}}" target="_blank">
 				    	@else
-                        <a href="{{filter_link_url($slider->text)}}" target="_blank">
+                        <a href="#">
 				    	@endif
 							<img src="{{slide_image_url($slider->gambar)}}" alt="Slide Promo" />
 						</a>

@@ -2,8 +2,8 @@ var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('co
 
 require.config({
     baseUrl: '/',
-    waitSeconds : 20,
-    urlArgs: "v=001",
+    waitSeconds : 60,
+    urlArgs: "v=002",
     shim: {
         "bootstrap": {
             deps: ['jquery']
@@ -34,7 +34,7 @@ require.config({
         jquery          : '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min',
         jquery_sharrre  : dirTema+'/assets/js/lib/jquery.sharrre',
         mobilegmap      : dirTema+'/assets/js/lib/jquery.mobilegmap',
-        googlemap       : 'http://maps.googleapis.com/maps/api/js?sensor=false',
+        googlemap       : '//maps.googleapis.com/maps/api/js?sensor=false',
         noty            : 'js/jquery.noty',
         noty_util       : 'js/utils/noty',
         select_nav      : dirTema+'/assets/js/lib/selectNav',
@@ -63,7 +63,7 @@ require([
     router.define('home', 'home@run');
 
     // KONTAK
-    // router.define('kontak', 'kontak@run');
+    router.define('kontak', 'kontak@run');
 
     // MEMBER
     router.define('member/*', 'member@run');

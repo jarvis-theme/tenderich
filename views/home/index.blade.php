@@ -16,7 +16,7 @@
                             @endif
 
                             <div class="view view-thumb">
-                                <img id="img-popular" src="{{URL::to(product_image_url($myproduk->gambar1,'medium'))}}" alt="{{$myproduk->nama}}" title="{{$myproduk->nama}}" asd>
+                                <img id="img-popular" src="{{URL::to(product_image_url($myproduk->gambar1,'medium'))}}" alt="{{$myproduk->nama}}" title="{{$myproduk->nama}}">
                                 <div class="mask">
                                     <h2>{{price($myproduk->hargaJual,$matauang)}}</h2>
                                     <p>{{short_description($myproduk->deskripsi,100)}}</p>

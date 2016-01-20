@@ -102,8 +102,10 @@ embed {max-width:100%;}
 /* ========= */
 .head.container {z-index: 9266}
 .welcome.container {background: #111; font-size: .9em}
-.welcome a {color:#fff}
+.welcome a {color:#fff;}
 .welcome .greet, .welcome .hscart {width: 46%; padding: 1% 0; position: relative}
+.welcome .greet a{border-bottom: 1px dotted}
+.welcome .greet a:hover{border: none;opacity: 0.8}
 .counter {min-width: 139px;width: 120px;padding: 10px;margin-top: -3px;border-top: none;float: right;border: 1px solid #DDD;}
 .welcome .cartbubble {position: absolute; width:161px;  top: 33px; text-align: left; z-index: 1; -webkit-backface-visibility: hidden; display: none}
 .welcome .cartbubble hr {margin:10px 0; border-top:1px solid #999; border-bottom: 1px solid black}
@@ -115,7 +117,7 @@ embed {max-width:100%;}
 .top {padding-top: 20px; padding-bottom: 20px}
 .top .logo a {line-height:1em;color: #448ccb}
 .top .logo a:hover {color: #fff}
-.top .logo.image img {max-width:250px; max-height: 80px;}
+.top .logo.image img {max-width:250px; margin-top: -10px}
 .top .cart {text-align: right;}
 .top .cart form {position: relative; margin-top:10px}
 .top .cart form button {position: absolute; top:8px; right: -4px; border:none; background: none}
@@ -792,6 +794,13 @@ div > .button:hover{background-color: #fff;}
 @media (min-width: 768px) and (max-width: 800px) {
 	.email{width: 65%}
 }
+@media (max-width: 420px){
+	.welcome .greet{width: 100%; margin-bottom: 10px}
+	.welcome .cartbubble{top: 75px}
+}
+@media screen and (max-width: 320px){
+	.tab-content{padding: 0px;margin: 0px;overflow: inherit}
+}
 #shoppingcartplace {background: #343333}.accordion-inner > p, .accordion-inner, .decidernote{color: #333}
-.well{background-color: transparent}
+.well{background-color: transparent}.carts{font-size: .9em}footer img{border-radius: 20px}
 #wrap-product{background: #fff none repeat scroll 0% 0%; border-radius: 4px; padding: 20px}

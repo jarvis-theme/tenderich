@@ -19,11 +19,11 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
 			  share: {
 				twitter: true
 			  },
-			  enableHover: true,
+			  enableHover: false,
 			  enableTracking: true,
 			  enableCounter: false,
 			  buttons: { 
-				twitter: {via: 'jarvis_store', count: 'vertical'}
+				twitter: {via: 'jarvis_store'}
 			  },
 			  click: function(api, options){
 				api.simulateClick();
@@ -35,7 +35,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
 				facebook: true
 			  },
 			  buttons: {
-				facebook: {layout: 'box_count'}
+				facebook: {layout: 'button'}
 			  },
 			  enableHover: false,
 			  enableTracking: true,
@@ -50,7 +50,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
 				googlePlus: true
 			  },
 			  buttons: {
-				googlePlus: {size: 'tall', annotation:'bubble'}
+				googlePlus: {size: 'tall', annotation:'none'}
 			  },
 			  enableHover: false,
 			  enableTracking: true,
@@ -65,9 +65,9 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
 				delicious: true
 			  },
 			  buttons: {
-				delicious: {size: 'tall'}
+				delicious: {size: 'medium'}
 			  },
-			  enableHover: true,
+			  enableHover: false,
 			  enableTracking: true,
 			  enableCounter: false
 			});
@@ -76,9 +76,9 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
 				stumbleupon: true
 			  },
 			  buttons: {
-				stumbleupon: {layout: '5'}
+				stumbleupon: {layout: '6'}
 			  },
-			  enableHover: true,
+			  enableHover: false,
 			  enableTracking: true,
 			  enableCounter: false
 			});

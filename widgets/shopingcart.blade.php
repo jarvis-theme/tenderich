@@ -1,6 +1,6 @@
 					<!-- Cart Updates -->
 					<div class="counter">
-						<a href="javascript:void(0);"><i class="icon-basket"></i> Cart  : <span style="font-size: .9em;" class="theme pull-right">{{ price(Shpcart::cart()->total() )}}</span></a>
+						<a href="javascript:void(0);"><i class="icon-basket"></i> Cart  : <span class="theme pull-right carts">{{ price(Shpcart::cart()->total() )}}</span></a>
 					</div>
 
 					<!-- Bubble Cart Item -->

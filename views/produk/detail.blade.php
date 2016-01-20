@@ -22,7 +22,7 @@
                         @endif  
                         </ul>     
                     </div>
-
+                    @if($produk->gambar2 != '' && $produk->gambar3 != '')
                     <div id="flexcarousel-product" class="flexslider visible-desktop">
                         <ul class="slides">
                         @if($produk->gambar2!='')
@@ -36,6 +36,7 @@
                         @endif  
                         </ul>
                     </div>
+                    @endif
                 </div>
             </div>
 
@@ -64,12 +65,12 @@
                                 <div class="pull-left">
                                     <input type="text" class="span1" name='qty' value="1">
                                 </div>
-                                <div class="pull-left">&nbsp;&nbsp;<input type='submit' class="btn theme" value='Tambah ke keranjang'></div>
+                                <div class="pull-left">&nbsp;&nbsp;<input type='submit' class="btn theme" value="Tambah ke keranjang"></div>
                             </div>
                         </form>
 
                     @elseif($setting->checkoutType=='2')    
-                        <form action="#" id='addorder'>     
+                        <form action="#" id="addorder">     
                             @if($opsiproduk->count()>0) 
                                 <select name="opsiproduk">
                                     <option value="">-- Pilih Opsi --</option>
@@ -83,9 +84,9 @@
 
                             <div class="clearfix">
                                 <div class="pull-left">
-                                    <input type="text" class="span1" name='qty' value="1">
+                                    <input type="text" class="span1" name="qty" value="1">
                                 </div>
-                                <div class="pull-left">&nbsp;&nbsp;<input type='submit' class="btn theme" value='Tambah ke keranjang'></div>
+                                <div class="pull-left">&nbsp;&nbsp;<input type="submit" class="btn theme" value="Tambah ke keranjang"></div>
                             </div>
                         </form>
 
@@ -127,9 +128,9 @@
 
                                     <div class="clearfix">
                                         <div class="pull-left">
-                                            <input type="text" class="span1" name='qty' value="1">
+                                            <input type="text" class="span1" name="qty" value="1">
                                         </div>
-                                        <div class="pull-left">&nbsp;&nbsp;<input type='submit' class="btn theme" value='Pre-order Item'></div>
+                                        <div class="pull-left">&nbsp;&nbsp;<input type="submit" class="btn theme" value="Pre-order Item"></div>
                                     </div>
                                 </form>
                             @else
@@ -157,7 +158,7 @@
                     <div class="accordion" id="accordion2">
                         <div class="accordion-group">
                             <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#description">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#description">
                                     <i class="icon-layout theme"></i> Deskripsi
                                 </a>
                             </div>
