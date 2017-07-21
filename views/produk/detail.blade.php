@@ -8,23 +8,31 @@
                 <div class="wrap" id="wrap-product">
                     <div id="flexslider-product" class="flexslider">
                         <ul class="slides">
+                        {{--*/ $x=0; /*--}}
                         @if($produk->gambar1!='')
                             <li><a href="{{product_image_url($produk->gambar1,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar1,'medium')), $produk->nama)}}</a></li>
+                            {{--*/ $x++; /*--}}
                         @endif
                         @if($produk->gambar2!='')
                             <li><a href="{{product_image_url($produk->gambar2,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar2,'medium')), $produk->nama)}}</a></li>
+                            {{--*/ $x++; /*--}}
                         @endif
                         @if($produk->gambar3!='')
                             <li><a href="{{product_image_url($produk->gambar3,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar3,'medium')), $produk->nama)}}</a></li>
+                            {{--*/ $x++; /*--}}
                         @endif
                         @if($produk->gambar4!='')
                             <li><a href="{{product_image_url($produk->gambar4,'large')}}"> {{HTML::image(url(product_image_url($produk->gambar4,'medium')), $produk->nama)}}</a></li>
-                        @endif  
-                        </ul>     
+                            {{--*/ $x++; /*--}}
+                        @endif
+                        </ul>
                     </div>
-                    @if($produk->gambar2 != '' && $produk->gambar3 != '')
-                    <div id="flexcarousel-product" class="flexslider visible-desktop">
+                    @if($x > 1)
+                    <div id="flexcarousel-product" class="flexslider visible-desktop {{$x>3?'marle10':'marle50'}}">
                         <ul class="slides">
+                        @if($produk->gambar1!='')
+                            <li>{{HTML::image(url(product_image_url($produk->gambar1,'thumb')), 'Produk 1')}}</li>
+                        @endif
                         @if($produk->gambar2!='')
                             <li>{{HTML::image(url(product_image_url($produk->gambar2,'thumb')), 'Produk 2')}}</li>
                         @endif
@@ -49,7 +57,7 @@
                             @endif  
                         </p>
 
-                        <form action="#" id='addorder'> 
+                        <form action="#" id="addorder"> 
                             @if($opsiproduk->count()>0)                                 
                             <select name="opsiproduk">
                                 <option value="">-- Pilih Opsi --</option>
@@ -61,11 +69,11 @@
                             </select>
                             @endif              
 
-                            <div class="clearfix">
+                            <div class="clearfix carts">
                                 <div class="pull-left">
-                                    <input type="text" class="span1" name='qty' value="1">
+                                    <input type="number" class="span1" name="qty" value="1">
                                 </div>
-                                <div class="pull-left">&nbsp;&nbsp;<input type='submit' class="btn theme" value="Tambah ke keranjang"></div>
+                                <div class="pull-left">&nbsp;&nbsp;<input type="submit" class="btn theme" value="Tambah ke keranjang"></div>
                             </div>
                         </form>
 
@@ -84,7 +92,7 @@
 
                             <div class="clearfix">
                                 <div class="pull-left">
-                                    <input type="text" class="span1" name="qty" value="1">
+                                    <input type="number" class="span1" name="qty" value="1">
                                 </div>
                                 <div class="pull-left">&nbsp;&nbsp;<input type="submit" class="btn theme" value="Tambah ke keranjang"></div>
                             </div>
@@ -97,7 +105,7 @@
                             @endif  
                         </p>
 
-                        @if(@$po)   
+                        @if(@$po) 
                             <br>
                             <div>
                                 <p>
@@ -108,12 +116,12 @@
                                         Kuota minimum proses pre-order : {{$po->kuota}}
                                     @endif
                                     <br>
-                                    DP : {{$po->dp}}    
+                                    DP : {{$po->dp}} 
                                 </p>
                             </div>
 
                             @if((strtotime($po->tanggalmulai)<=strtotime(date('Y-m-d'))) && (($po->kuota!=0) || ($po->tanggalakhir!='0000-00-00' && strtotime($po->tanggalakhir)>=strtotime(date('Y-m-d'))) ) )     
-                                <form action="#" id='addorder'>
+                                <form action="#" id="addorder">
                                 
                                     @if($opsiproduk->count()>0) 
                                     <select name="opsiproduk">
@@ -128,7 +136,7 @@
 
                                     <div class="clearfix">
                                         <div class="pull-left">
-                                            <input type="text" class="span1" name="qty" value="1">
+                                            <input type="number" class="span1" name="qty" value="1">
                                         </div>
                                         <div class="pull-left">&nbsp;&nbsp;<input type="submit" class="btn theme" value="Pre-order Item"></div>
                                     </div>
@@ -145,13 +153,7 @@
                     <hr>
                     <div class="row-fluid">
                         <div class="span12 decidernote">Bingung memilih? tanyalah teman :)</div>
-                        <div class="span12 decider">
-                            <div id="twitter" data-url="{{Request::url();}}" data-text="{{$produk->nama}} | " data-title="Tweet"></div>
-                            <div id="facebook" data-url="{{Request::url();}}" data-text="{{$produk->nama}}" data-title="Like"></div>
-                            <div id="googleplus" data-url="{{Request::url();}}" data-text="{{$produk->nama}}" data-title="+1"></div>
-                            <div id="delicious" data-url="{{Request::url();}}" data-text="{{$produk->nama}}"></div>
-                            <div id="stumbleupon" data-url="{{Request::url();}}" data-text="{{$produk->nama}}"></div>
-                        </div>
+                        <div id="share"></div>
                     </div>
                     <hr>
 
@@ -192,18 +194,18 @@
                         <hr />
                         <header>Produk yang mungkin anda suka</header>
                         <section class="row-fluid cross-product">
-                        @foreach(other_product($produk) as $myproduk)   
+                        @foreach(other_product($produk) as $myproduk) 
                             <article class="span3" id="related-produk">
                                 @if(is_outstok($myproduk))
-                                {{is_outstok($myproduk)}}
+                                <img src="//d3kamn3rg2loz7.cloudfront.net/assets/tenderich/img/stok-badge.png" class="outstok-badge">
                                 @elseif(is_terlaris($myproduk))
-                                {{is_terlaris($myproduk)}}
+                                <img src="//d3kamn3rg2loz7.cloudfront.net/assets/tenderich/img/terlaris-badge.png" class="best-badge">
                                 @elseif(is_produkbaru($myproduk))
-                                {{is_produkbaru($myproduk)}}
+                                <img src="//d3kamn3rg2loz7.cloudfront.net/assets/tenderich/img/new-badge.png" class="new-badge">
                                 @endif
 
                                 <div id="related-image" class="view view-thumb">
-                                    {{HTML::image(url(product_image_url($myproduk->gambar1,'medium')), $myproduk->nama)}}
+                                    {{HTML::image(url(product_image_url($myproduk->gambar1,'medium')), $myproduk->nama, array("class" => "relatedprod"))}}
                                     <div class="mask">
                                         <h2>{{price($myproduk->hargaJual)}}</h2>
                                         <p>{{short_description($myproduk->deskripsi,100)}}</p>

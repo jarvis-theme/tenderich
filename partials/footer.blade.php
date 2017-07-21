@@ -3,18 +3,18 @@
 		<section class="row foot">
 			@foreach(all_menu() as $key=>$group)
             @if($key!=0)
-			<article class="span3">
+			<article class="span3 links">
 					<strong>{{$group->nama}}</strong>
 					<ul>
 						@foreach($group->link as $key=>$link)
-						<li><a href='{{menu_url($link)}}'>{{$link->nama}}</a></li>
+						<li><a href="{{menu_url($link)}}">{{$link->nama}}</a></li>
 						@endforeach
 					</ul>
 			</article>
 			@endif
 			@endforeach
 
-			<article class="span3">
+			<article class="span3 blogs">
 				<strong>Posting Terbaru</strong>
 				<ul>
 					@foreach (list_blog() as $items)
@@ -88,9 +88,9 @@
 
 	<section class="row-fluid social">
 		<div class="container">
-			<div class="pull-left">&copy; {{date('Y')}} {{ Theme::place('title') }}. Powered by <a href="http://jarvis-store.com" target="_blank" id="site">Jarvis Store</a> </div>
+			<div class="copyright">&copy; {{date('Y')}} {{ Theme::place('title') }}. Powered by <a href="http://jarvis-store.com" target="_blank" id="site">Jarvis Store</a> </div>
 
-			<div class="pull-right">
+			<div class="social-media">
 				<ul>
 					@if($kontak->fb)
 						<li><a target="_blank" href="{{url($kontak->fb)}}" title="Facebook"><i class="icon-facebook"></i></a></li>

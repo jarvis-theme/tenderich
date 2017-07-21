@@ -3,7 +3,7 @@ var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('co
 require.config({
     baseUrl: '/',
     waitSeconds : 60,
-    urlArgs: "v=002",
+    urlArgs: "v=003",
     shim: {
         "bootstrap": {
             deps: ['jquery']
@@ -22,6 +22,9 @@ require.config({
         },
         "noty"  : {
             deps : ['jquery']
+        },
+        "js_socials" : {
+            deps : ['jquery']
         }
     },
     
@@ -38,6 +41,7 @@ require.config({
         noty            : 'js/jquery.noty',
         noty_util       : 'js/utils/noty',
         select_nav      : dirTema+'/assets/js/lib/selectNav',
+        js_socials      : '//cdn.jsdelivr.net/jquery.jssocials/1.3.1/jssocials.min',
 
         // ROUTE
         router          : 'js/router',

@@ -3,7 +3,13 @@
         <div class="row">
             <header class="span12 prime">
                 <h3>{{$detailblog->judul}}</h3>
-                <p><span class="date"><i class="icon-calendar"></i> {{date("d M Y", strtotime($detailblog->updated_at))}} <i class="icon-tag"></i><a href="{{blog_category_url(@$detailblog->kategori)}}"> {{@$detailblog->kategori->nama}}</a></span></p>
+                <p>
+                    <span class="date"><i class="icon-calendar"></i> {{ waktuTgl($detailblog->created_at) }}
+                    @if(!empty($detailblog->kategori->nama))
+                    <i class="icon-folder"></i><a href="{{blog_category_url(@$detailblog->kategori)}}"> {{@$detailblog->kategori->nama}}</a>
+                    @endif
+                    </span>
+                </p>
             </header>
         </div>
 
@@ -14,13 +20,7 @@
                         <p>{{$detailblog->isi}}</p>
                     </article>
                     <hr>
-                    <div class="share" id="sosmed">
-                        <div id="twitter" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}} | " data-title="Tweet"></div>
-                        <div id="facebook" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}}" data-title="Like"></div>
-                        <div id="googleplus" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}}" data-title="+1"></div>
-                        <div id="delicious" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}}"></div>
-                        <div id="stumbleupon" data-url="{{Request::url();}}" data-text="{{$detailblog->slug}}"></div>
-                    </div> 
+                    <div id="share"></div>
                     <br>
                     <hr>
 
@@ -49,7 +49,7 @@
                         <p class="title"><i class="icon-rss"></i> <strong>Artikel Terbaru</strong></p>
                         <ul>
                             @foreach(list_blog(8) as $recent)
-                            <li><a href="{{blog_url($recent)}}">{{$recent->judul}}</a><br /><small>diposting tanggal {{waktu($recent->updated_at)}}</small></li>
+                            <li><a href="{{blog_url($recent)}}">{{$recent->judul}}</a><br /><small>diposting tanggal {{waktuTgl($recent->created_at)}}</small></li>
                             @endforeach
                         </ul>
                     </aside>

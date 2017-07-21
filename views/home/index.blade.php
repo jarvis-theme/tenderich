@@ -8,11 +8,11 @@
                     <div class="tab-pane active" id="feat">
                         <article id="popular" class="span4">
                             @if(is_outstok($myproduk))
-                            {{is_outstok($myproduk)}}
+                            <img src="//d3kamn3rg2loz7.cloudfront.net/assets/tenderich/img/stok-badge.png" class="outstok-badge">
                             @elseif(is_terlaris($myproduk))
-                            {{is_terlaris($myproduk)}}
+                            <img src="//d3kamn3rg2loz7.cloudfront.net/assets/tenderich/img/terlaris-badge.png" class="best-badge">
                             @elseif(is_produkbaru($myproduk))
-                            {{is_produkbaru($myproduk)}}
+                            <img src="//d3kamn3rg2loz7.cloudfront.net/assets/tenderich/img/new-badge.png" class="new-badge">
                             @endif
 
                             <div class="view view-thumb">

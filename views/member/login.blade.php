@@ -16,16 +16,16 @@
                         <div class="tab-pane active" id="login">
                             <form class="form-horizontal" action="{{url('member/login')}}" method="post">
                                 <div class="control-group">
-                                    <label class="control-label" for="inputEmail"> Email</label>
+                                    <label class="control-label">Email</label>
                                     <div class="controls">
-                                        <input type="email" value="{{Input::old('email')}}" name="email" id="inputEmail" placeholder="Email" required>
+                                        <input type="email" value="{{Input::old('email')}}" name="email" required>
                                     </div>
                                 </div>
 
                                 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Password</label>
+                                    <label class="control-label">Password</label>
                                     <div class="controls">
-                                        <input type="password" name="password" id="inputPassword" placeholder="Password" required>
+                                        <input type="password" name="password" required>
                                     </div>
                                 </div>
 
@@ -38,9 +38,9 @@
                         <div class="tab-pane" id="forgot">
                             <form class="form-horizontal" action="{{url('member/forgetpassword')}}" method="post">
                                 <div class="control-group">
-                                    <label class="control-label" for="inputEmail"> Email</label>
+                                    <label class="control-label"> Email</label>
                                     <div class="controls">
-                                      <input type="email" id="inputEmail" placeholder="Email" name='recoveryEmail'>
+                                      <input type="email" name="recoveryEmail">
                                     </div>
                                 </div>
 

@@ -11,10 +11,11 @@
                 <div class="sidebar">
                     {{pluginSidePowerup()}}
                     <section>
+                        {{--*/ $i=0; /*--}}
                         @foreach(vertical_banner() as $item)
-                        <div>
+                        <div class="mb10">
                             <a href="{{$item->url}}">
-                                <img src="{{url(banner_image_url($item->gambar))}}" alt="Info Promo" />
+                                <img src="{{url(banner_image_url($item->gambar))}}" alt="{{'Info Promo '.$i++}}" />
                             </a>
                         </div>
                         @endforeach
@@ -22,11 +23,6 @@
 
                     <section>
                         <h5>Hubungi Kami</h5>
-                        @if($shop->ym)
-                        {{ymyahoo($shop->ym)}}
-                        <br><br>
-                        @endif  
-
                         @if($shop->telepon)
                         <address class="row-fluid">
                             <div class="pull-left clabel"><i class="icon-phone"></i></div>
@@ -53,7 +49,7 @@
                         @if($shop->bb)
                         <address class="row-fluid">
                             <div class="pull-left">
-                                <img src="{{url('img/bbm.png')}}" alt="BBM">
+                                <img src="{{url('img/bbm.png')}}" alt="BBM" style="width: 20px">
                                 <span>{{$shop->bb}}</span>
                             </div>
                             <div class="pull-left cdata"></div>
@@ -67,12 +63,12 @@
                             <ul>
                                 @foreach(list_testimonial(3) as $items)
                                 <li>
-                                    <a href="#">{{$items->isi}}</a><br />
+                                    <a>{{$items->isi}}</a><br />
                                     <small>oleh <strong>{{$items->nama}}</strong></small>
                                 </li>
                                 @endforeach
                             </ul>
-                            <strong class="pull-right"><a href="{{url('testimoni')}}">Selengkapnya...</a></strong>
+                            <strong class="pull-right"><a class="white" href="{{url('testimoni')}}">Selengkapnya...</a></strong>
                         </span>
                     </section>
                 </div>
@@ -84,14 +80,14 @@
                     @foreach(home_product() as $key=>$myproduk)
                         <article id="home-product">
                             @if(is_outstok($myproduk))
-                            {{is_outstok($myproduk)}}
+                            <img src="//d3kamn3rg2loz7.cloudfront.net/assets/tenderich/img/stok-badge.png" class="outstok-badge">
                             @elseif(is_terlaris($myproduk))
-                            {{is_terlaris($myproduk)}}
+                            <img src="//d3kamn3rg2loz7.cloudfront.net/assets/tenderich/img/terlaris-badge.png" class="best-badge">
                             @elseif(is_produkbaru($myproduk))
-                            {{is_produkbaru($myproduk)}}
+                            <img src="//d3kamn3rg2loz7.cloudfront.net/assets/tenderich/img/new-badge.png" class="new-badge">
                             @endif
                             <div class="view view-thumb">
-                                <img id"home-thumb" src="{{URL::to(product_image_url($myproduk->gambar1,'medium'))}}" class="img1" alt="{{$myproduk->nama}}" title="{{$myproduk->nama}}" />
+                                <img id="home-thumb" src="{{URL::to(product_image_url($myproduk->gambar1,'medium'))}}" class="img1" alt="{{$myproduk->nama}}" title="{{$myproduk->nama}}" />
                                 <div class="mask">
                                     <h2>{{price($myproduk->hargaJual,$matauang)}}</h2>
                                     <p>{{short_description($myproduk->deskripsi,100)}}</p>

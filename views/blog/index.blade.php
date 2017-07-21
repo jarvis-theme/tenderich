@@ -11,7 +11,7 @@
                         <p class="title"><i class="icon-rss"></i> <strong>Artikel Baru</strong></p>
                         <ul>
                             @foreach(list_blog() as $recent)
-                            <li><a href="{{blog_url($recent)}}">{{$recent->judul}}</a><br /><small>diposting tanggal {{waktuTgl($recent->updated_at)}}</small></li>
+                            <li><a href="{{blog_url($recent)}}">{{$recent->judul}}</a><br /><small>diposting tanggal {{waktuTgl($recent->created_at)}}</small></li>
                             @endforeach
                         </ul>
                     </aside>
@@ -28,8 +28,8 @@
                 @if(count(list_blog(null,@$blog_category)) > 0)    
                     @foreach(list_blog(null,@$blog_category) as $key=>$value)  
                     <article>
-                        <a href="{{blog_url($value)}}"><h4>{{$value->judul}}</h4></a>
-                        <p><small class="date"><i class="icon-calendar"></i> {{waktuTgl($value->updated_at)}}</small></p>
+                        <a href="{{blog_url($value)}}"><h3>{{$value->judul}}</h3></a>
+                        <p><small class="date"><i class="icon-calendar"></i> {{waktuTgl($value->created_at)}}</small></p>
                         {{short_description($value->isi,300)}}
                         <p><a href="{{blog_url($value)}}" class="theme">Baca Selengkapnya →</a></p>
                     </article>

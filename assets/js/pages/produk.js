@@ -1,4 +1,4 @@
-define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
+define(['jquery','jq_ui','bootstrap','flexslider','js_socials'], function($)
 {
 	return new function()
 	{
@@ -6,7 +6,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
 		self.run = function()
 		{
 			slider();
-			sharrreButtons();
+			share();
 			
 			// Fancybox function
 			$('#flexslider-product .slides a').fancybox();
@@ -84,6 +84,20 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
 			});
 		};
 
+		var share = function(){
+			var url = document.querySelector("meta[name='url']").getAttribute('content');
+			var text = document.querySelector("meta[name='DC.Title']").getAttribute('content');
+
+			$("#share").jsSocials({
+				url: url,
+				text: text,
+				showCount: false,
+				showLabel: false,
+				shareIn: "popup",
+				shares: ["twitter", "facebook", "googleplus", "pinterest", "stumbleupon", "line", "whatsapp"]
+			});
+		};
+
 		var slider = function(){
 			//Main slider
 			$('#flexcarousel').flexslider({
@@ -112,7 +126,7 @@ define(['jquery','jq_ui','bootstrap','flexslider','jquery_sharrre'], function($)
 			controlNav: false,
 			animationLoop: false,
 			slideshow: false,
-			itemWidth: 115,
+			itemWidth: 80,
 			asNavFor: "#flexslider-product"
 		  });
 		  
