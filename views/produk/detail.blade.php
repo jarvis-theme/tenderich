@@ -92,7 +92,7 @@
 
                             <div class="clearfix">
                                 <div class="pull-left">
-                                    <input type="number" class="span1" name="qty" value="1">
+                                    <input type="number" class="span1" name="qty" pattern="[0-9]" title="jumlah" value="1">
                                 </div>
                                 <div class="pull-left">&nbsp;&nbsp;<input type="submit" class="btn theme" value="Tambah ke keranjang"></div>
                             </div>
